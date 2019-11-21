@@ -8,41 +8,42 @@ function handleShipAnimation() {
   If neither is pressed set speed to 0
   **/
   if(!(CONTROLS.ship.forward||CONTROLS.ship.backward)){
-    SPACE_SHIP.speed = 0;
+    SHIP.speed = 0;
   }
   /**
   Speed up while key is pressed to limit of 50
   **/
+  if (CONTROLS.ship.left) {
+    SHIP.x -=5;
+  }
+  
+  if (CONTROLS.ship.right) {
+    SHIP.x +=5;
+  }
   if (CONTROLS.ship.forward) {
-    if(SPACE_SHIP.speed<50){
-      SPACE_SHIP.speed++;
+    if(SHIP.speed<50){
+      SHIP.speed++;
     }
   }
   if (CONTROLS.ship.backward) {
-    if(SPACE_SHIP.speed<50){
-      SPACE_SHIP.speed--;
+    if(SHIP.speed<50){
+      SHIP.speed--;
     }
   }
   /*
   Move ship based on speed
   */
-  SPACE_SHIP.y +=  SPACE_SHIP.speed/10;
-  if (CONTROLS.ship.rotateClockwise) {
-    SPACE_SHIP.rotation -= 4;
-  }
-  if (CONTROLS.ship.rotateCounterClockwise) {
-    SPACE_SHIP.rotation += 4;
-  }
+
 
   // Check if asteroid is leaving the boundary, if so, switch sides
-  if (SPACE_SHIP.x > GAME.canvas.width) {
-    SPACE_SHIP.x = 0;
-  } else if (SPACE_SHIP.x < 0) {
-    SPACE_SHIP.x = 600;
-  } else if (SPACE_SHIP.y > GAME.canvas.height) {
-    SPACE_SHIP.y = 0;
-  } else if (SPACE_SHIP.y < 0) {
-    SPACE_SHIP.y = 300;
+  if (SHIP.x > GAME.canvas.width) {
+    SHIP.x = 0;
+  } else if (SHIP.x < 0) {
+    SHIP.x = 600;
+  } else if (SHIP.y > GAME.canvas.height) {
+    SHIP.y = 0;
+  } else if (SHIP.y < 0) {
+    SHIP.y = 300;
   }
 }
 
@@ -62,6 +63,8 @@ function runGame() {
 
     // 1 - Reposition the objects
     handleShipAnimation();
+    handleIceburgAnimation();
+    renderIceburg();
     HandleNewObjectMovement();
 
     // 2 - Clear the CANVAS

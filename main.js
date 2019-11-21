@@ -8,5 +8,6 @@
 function Start() {
 
   // Initialize Spaceship
-  InitializeSpaceship();
+  InitializeShip();
+  InitializeIceburg();
 }

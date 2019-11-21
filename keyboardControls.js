@@ -7,6 +7,8 @@ var CONTROLS = {
   ship : {
     forward : false,
     back : false,
+    right : false,
+    left : false,
     rotateClockwise : false,
     rotateCounterClockwise : false
   },
@@ -25,8 +27,11 @@ document.addEventListener('keydown', function(event) {
     case "ArrowDown":
       CONTROLS.ship.backward = true;
       break;
-    case " ":
-      CONTROLS.fire.active = true;
+    case "ArrowLeft"";
+      CONTROLS.ship.left = true;
+    case "ArrowRight":
+      CONTROLS.ship.right = true;
+      break;
       break;
     default:
       break;
@@ -41,6 +46,10 @@ document.addEventListener('keyup', function(event) {
       break;
     case "ArrowDown":
       CONTROLS.ship.backward = false;
+    case "ArrowLeft":
+      CONTROLS.ship.left = false;
+    case "ArrowRight":
+      CONTROLS.ship.right = false;
       break;
     case " ":
       CONTROLS.fire.active = false;

@@ -4,7 +4,8 @@ var GAME = {
     height : 720
   },
   started : true,
-  level : 1
+  level : 1,
+  iceburg : [],
 };
 
 var SPACE_SHIP = {
