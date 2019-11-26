@@ -13,7 +13,7 @@ function renderIceburg(context)
 {
   for(var k = 0; k<GAME.iceburg.length; k++)
   {
-    context.arc(GAME.iceburg[k].x,GAME.iceburg[k].y,30+(MATH.random()*40),0,2*Math.PI);
+    context.arc(GAME.iceburg[k].x,GAME.iceburg[k].y,30+(Math.random()*40),0,2*Math.PI);
   }
 }
 

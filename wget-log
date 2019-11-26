@@ -1,0 +1,15 @@
+--2019-11-24 21:22:56--  http://soundbible.com/grab.php?id=2193
+Resolving soundbible.com (soundbible.com)... 65.181.113.249
+Connecting to soundbible.com (soundbible.com)|65.181.113.249|:80... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: http://soundbible.com [following]
+--2019-11-24 21:22:56--  http://soundbible.com/
+Reusing existing connection to soundbible.com:80.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘grab.php?id=2193’
+
+grab.php?id=2193        [<=>                 ]       0  --.-KB/s               grab.php?id=2193        [ <=>                ]  14.31K  --.-KB/s    in 0.06s   
+
+2019-11-24 21:22:56 (254 KB/s) - ‘grab.php?id=2193’ saved [14658]
+

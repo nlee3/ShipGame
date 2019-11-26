@@ -7,11 +7,19 @@
   <script type="text/javascript" src="iceberg.js"></script>
   <head>
   <body onload="Start()">
-    <canvas id="mainCanvas" width="600" height="300" style="border:1px solid black;">
+    <canvas id="mainCanvas" width="600" height="300" style="background: url('./ocean.png')">
     </canvas>
   </body>
 
   <!-- Load the keyboard control AFTER the page has loaded -->
   <script type="text/javascript" src="keyboardControl.js" ></script>
   <script type="text/javascript" src="animate.js" ></script>
+<script>
+  myMusic = new Audio("seagull.mp3");
+myMusic.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
+  myMusic.play();
+</script>
 </html>

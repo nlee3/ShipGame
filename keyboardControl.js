@@ -27,11 +27,11 @@ document.addEventListener('keydown', function(event) {
     case "ArrowDown":
       CONTROLS.ship.backward = true;
       break;
-    case "ArrowLeft"";
+    case "ArrowLeft":
       CONTROLS.ship.left = true;
+	break;
     case "ArrowRight":
       CONTROLS.ship.right = true;
-      break;
       break;
     default:
       break;
@@ -46,8 +46,10 @@ document.addEventListener('keyup', function(event) {
       break;
     case "ArrowDown":
       CONTROLS.ship.backward = false;
+	break;
     case "ArrowLeft":
       CONTROLS.ship.left = false;
+	break;
     case "ArrowRight":
       CONTROLS.ship.right = false;
       break;

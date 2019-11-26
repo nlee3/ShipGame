@@ -8,7 +8,7 @@ var GAME = {
   iceburg : [],
 };
 
-var SPACE_SHIP = {
+var ship = {
   initialized : false,
   bullets : [],
   latest : {

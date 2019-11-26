@@ -1,10 +1,12 @@
-
+//var spr_ship = new Image(); spr_ship.src="filepath";    eg. "filepath"="Images/shipSprite.png"
 // Populate a global variable for the ship
+var spr_ship=new Image(); spr_ship.src="output.png";
+
 function InitializeShip() {
   var canvas = document.getElementById('mainCanvas');
   var context = canvas.getContext('2d');
   context.scale(1,1);
-  SHIP = {
+  ship = {
     x : 300,
     y : 150,
     rotation : 0,
@@ -32,8 +34,8 @@ function InitializeShip() {
       }
     ],
     latest : {
-        x : SHIP.x,
-        y : SHIP.y,
+        x : ship.x,
+        y : ship.y,
     },
     scale : 50,
     initialized : true,
@@ -41,68 +43,19 @@ function InitializeShip() {
   };
 }
 
-// Rotate rotates a point around
-// cx, cy   :   The central point
-// x, y     :   The coordinates of point to be rotatedPoint
-// angle    :   Angle in degrees of rotation
+  function RenderShip(context) {
+    /*if (!ship.initialized) {
+      return;
+    }
+context.beginPath()
+context.moveTo(ship.x-80,ship.y-50);
+context.lineTo(ship.x+80,ship.y-50);
+context.lineTo(ship.x+50,ship.y+50);
+context.lineTo(ship.x-50,ship.y+50);
+context.closePath();
+context.stroke();
+context.fillStyle="yellow";
+context.fill();*/
+context.drawImage(spr_ship, ship.x, ship.y, 100, 100);
 
-
-// RotateAroundOrigin
-// x, y     :   The coordinates of point to be rotatedPoint
-// angle    :   Angle in degrees of rotation
-function RotateAroundOrigin(x, y, angle) {
-  return Rotate(0, 0, x, y, angle);
-}
-
-/**  Rendership
- *
- *  Renders all ship points after adjusting them for the rotation and position
- *    in space
- */
-function RenderShip(context) {
-  if (!SHIP.initialized) {
-    return;
-  }
-
-  // Move to the point where drawing will start
-  var rotatedPoint = RotateAroundOrigin(
-    SHIP.positions[0].x,
-    SHIP.positions[0].y,
-    SHIP.rotation
-  );
-  context.moveTo(SHIP.x + rotatedPoint[0],SHIP.y +  rotatedPoint[1]);
-  SHIP.latest.x = SHIP.x + rotatedPoint[0];
-  SHIP.latest.y = SHIP.y + rotatedPoint[1];
-  // Begin rendering the space ship points (rotating them each time)
-  context.beginPath();
-  for (var i = 0; i < SHIP.positions.length; i++) {
-    var rotatedPoint = RotateAroundOrigin(
-      SHIP.positions[i].x,
-      SHIP.positions[i].y,
-      SHIP.rotation
-    );
-    context.lineTo(
-      SHIP.x + (rotatedPoint[0] * SHIP.scale),
-      SHIP.y + (rotatedPoint[1] * SHIP.scale)
-    );
-  }
-  context.lineWidth = 1;
-  switch (SHIP.health) {
-    case 3:
-      context.strokeStyle = 'green';
-      break;
-    case 2:
-      context.strokeStyle = 'blue';
-      break;
-    case 1:
-      context.strokeStyle = 'orange';
-      break;
-    case 0:
-      context.strokeStyle = 'red';
-      break;
-    default:
-      context.strokeStyle = 'white';
-      break;
-  }
-  context.stroke();
 }
